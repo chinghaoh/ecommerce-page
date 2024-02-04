@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+:root {
+    --ff-background-color: hsl(224, 31%, 12%);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+/*Header*/
+header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 10rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.left-side-header {
+    display: flex;
+    gap: 1rem;
+}
+
+.right-side-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+.avatar-icon {
+    max-width: 3.125rem;
+}
+
+.shopping-cart-icon {
+    max-width: 1rem;
+    max-height: 1rem;
+}
+
+
+/*Main component*/
+
+/*The container for the main content*/
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 60rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/*Wraps the content into 2 colomns*/
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 1rem;
+}
+
+/*the grid container for the images mobile version*/
+.image-container-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    max-height: 100%;
+    object-fit: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.icon {
+    width: 30px;
+    /* Adjust the size of the icon */
+    height: 30px;
+    /* Adjust the size of the icon */
+    object-fit: contain;
+    /* Maintain the aspect ratio */
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*grid container for images desktop verson */
+@media (min-width:800px) {
+    .container {
+        padding-block: 1.8rem;
+    }
+
+    .grid-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .image-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .span-row-2 {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+}
+
+.grid-item {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Flex container for the product info */
+.product-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 1rem;
+}
+
+
+/* Grid container for the prices */
+.product-price {
+    display: grid;
+    grid-template-columns: 5rem 0.5rem;
+}
+
+/* Flex container for the amount of items and shopping cart */
+.transaction-info {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Modal*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+}
+
+.modal-image {
+    max-width: 500px;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal-grid{
+    max-width: 400px;
+}
+
+.modal-background{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 500px;
+    object-fit: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
