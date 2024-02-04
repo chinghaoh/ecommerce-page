@@ -70,8 +70,8 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 500px;
-    max-height: 100%;
+    max-width: 31.25rem;
+    height: 18.75rem;
     object-fit: contain;
     background-size: cover;
     background-position: center;
@@ -81,20 +81,20 @@ header {
 }
 
 .icon {
-    width: 30px;
+    width: 1.875rem;
     /* Adjust the size of the icon */
-    height: 30px;
+    height: 1.875rem;
     /* Adjust the size of the icon */
     object-fit: contain;
     /* Maintain the aspect ratio */
 }
 
 .icon-circle {
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
     background-color: white;
     border-radius: 50%;
-    margin: 0 10px;
+    margin: 0 0.625rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,7 +102,7 @@ header {
 
 
 /*grid container for images desktop verson */
-@media (min-width:800px) {
+@media (min-width:50rem) {
     .container {
         padding-block: 1.8rem;
     }
@@ -171,20 +171,20 @@ img {
 }
 
 .modal-image {
-    max-width: 500px;
+    max-width: 31.25rem;
     max-height: 100%;
     object-fit: contain;
 }
 
 .modal-grid{
-    max-width: 400px;
+    max-width: 25rem;
 }
 
 .modal-background{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 500px;
+    min-height: 31.25rem;
     object-fit: contain;
     background-size: cover;
     background-position: center;
