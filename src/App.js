@@ -15,6 +15,9 @@ import product4Thumbnail from './images/image-product-4-thumbnail.jpg';
 import product4 from './images/image-product-4.jpg';
 import nextIcon from './images/icon-next.svg';
 import previousIcon from './images/icon-previous.svg';
+import plusIcon from './images/icon-plus.svg';
+import minusIcon from './images/icon-minus.svg';
+import cartIcon from './images/icon-cart.svg';
 
 
 function App() {
@@ -85,7 +88,7 @@ function App() {
     <html lang="en">
       <head>
         <meta charset="UTF-8"></meta>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       {isMobile ? (
         /*TODO fix header for mobile view */
@@ -130,27 +133,38 @@ function App() {
 
             )}
             <div className='product-info-container'>
-            {/*TODO fix product info
+              {/*TODO fix product info
             add functionality to add to shopping items to child component
             1.create shopping cart modal that will only render if shopping cart is clicked
             2.The add button will populate the child component with data
             3. the child component will render the data, if there is nothing show cart is empty
              */ }
               <div className='product-info'>
-                <p>Sneaker Company</p>
+                <p className='product-company' >Sneaker Company</p>
                 <h1>Fall Limited Edition Sneakers</h1>
                 <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
                   durable rubber outer sole, they’ll withstand everything the weather can offer.
                 </p>
               </div>
               <div className='product-price'>
-                <p>$125.00</p>
-                <p>50%</p>
-                <p>$250.00</p>
+                <h2 className='new-price'>$125.00</h2>
+                <div className='sale-box'>
+                  <p>50%</p>
+                </div>
+                <p className='original-price'>$250.00</p>
               </div>
               <div className='transaction-info'>
-                <p>0</p>
-                <p> Add to cart</p>
+                <div className='quantity-box'>
+                  <img className='minus-icon' src={minusIcon} alt='minus icon'></img>
+                  <p>0</p>
+                  <img className='plus-icon' src={plusIcon} alt='plus icon'></img>
+                  <div>
+                  </div>
+                </div>
+                <div className='cart-container'>
+                <img className='cart-icon-transaction' src={cartIcon} alt='cart icon'></img>
+                  <p> Add to cart</p>
+                </div>
               </div>
             </div>
           </div>
