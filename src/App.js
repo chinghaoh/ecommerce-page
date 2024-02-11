@@ -254,18 +254,6 @@ function App() {
           productImageList={productImageList} productThumbnail={productThumbnails}
           previousIcon={previousIcon} nextIcon={nextIcon}
         ></ProductModalComponent>}
-        {/* <div>
-          <h2>Shopping Cart</h2>
-          <ul>
-            {cartItems.map(item => (
-              <li key={item.id}>
-                <p>{item.name}</p>
-                <p>Price: ${item.price}</p>
-                <p>Quantity: {item.amount}</p>
-              </li>
-            ))}
-          </ul>
-        </div> */}
       </body>
     </html>
   );
