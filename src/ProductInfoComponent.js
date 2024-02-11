@@ -32,6 +32,7 @@ const ProductInfoComponent = ({price, productAmount, handleAmountDecrease, handl
     });
   };
 
+
   return (
     <div className='product-info-container'>
       <div className='product-info'>
@@ -48,10 +49,10 @@ const ProductInfoComponent = ({price, productAmount, handleAmountDecrease, handl
         <p className='original-price'>$250.00</p>
       </div>
       <div className='transaction-info'>
-        <div className='quantity-box hover'>
-          <img className='minus-icon' src={minusIcon} alt='minus icon' onClick={handleAmountDecrease}></img>
+        <div className='quantity-box'>
+          <img className='minus-icon hover' src={minusIcon} alt='minus icon' onClick={handleAmountDecrease}></img>
           <p>{productAmount}</p>
-          <img className='plus-icon' src={plusIcon} alt='plus icon' onClick={handleAmountIncrease}></img>
+          <img className='plus-icon hover' src={plusIcon} alt='plus icon' onClick={handleAmountIncrease}></img>
         </div>
         <div className='cart-container hover' onClick={handleAddToCart}>
           <img className='cart-icon-transaction' src={cartIcon} alt='cart icon'></img>

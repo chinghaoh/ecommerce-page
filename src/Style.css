@@ -20,7 +20,7 @@ header {
     padding-block: 1rem;
 }
 
-.mobile-header{
+.mobile-header {
     display: flex;
     padding: 1rem;
 }
@@ -37,10 +37,41 @@ header {
     justify-content: center;
     gap: 2rem;
     margin-left: auto;
+    position: relative;
 }
 
+.cart-avatar-container {
+    position: relative;
+}
 
-.mobile-menu-icon{
+.cart-container-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cart-avatar-container {
+    position: relative;
+}
+
+.cart-container-header {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    margin-top: 1rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 20rem;
+    display: block;
+}
+
+.mobile-menu-icon {
     max-width: 1rem;
     max-height: 1rem;
     justify-content: center;
@@ -131,7 +162,7 @@ header {
         gap: 1rem;
     }
 
-    .thumbnail:hover{
+    .thumbnail:hover {
         opacity: 0.5;
         border: 1px solid orange;
     }
@@ -164,27 +195,30 @@ img {
     padding-inline: 1rem;
 }
 
-.product-company{
+.product-company {
     color: hsl(25, 69%, 61%);
     font-weight: 800;
 }
 
-.sale-box{
+.sale-box {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: hsl(26, 100%, 94%);
     color: hsl(25, 69%, 61%);
-    background-size: 100% 50%; /* Adjust the values as needed */
+    background-size: 100% 50%;
+    /* Adjust the values as needed */
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
-    max-width: 0.5rem; /* Adjust max-width as needed */
-    padding: 1rem; /* Adjust padding on all sides */
+    max-width: 0.5rem;
+    /* Adjust max-width as needed */
+    padding: 1rem;
+    /* Adjust padding on all sides */
     padding-block: 0;
 }
 
-.sale-box > p{
+.sale-box>p {
     margin-block: 0;
 }
 
@@ -193,10 +227,10 @@ img {
     display: grid;
     grid-template-columns: 5rem 5rem;
     align-items: center;
-    gap: 0.5rem; 
+    gap: 0.5rem;
 }
 
-.original-price{
+.original-price {
     color: hsl(231, 6%, 77%);
     text-decoration: line-through;
     margin: 0;
@@ -211,7 +245,7 @@ img {
     margin-block: 2rem;
 }
 
-.quantity-box{
+.quantity-box {
     border-radius: 1rem;
     display: flex;
     flex-direction: row;
@@ -222,21 +256,21 @@ img {
     width: 100%;
 }
 
-.plus-icon{
+.plus-icon {
     margin-left: auto;
     padding-right: 1rem;
     width: 1rem;
     height: 1rem;
 }
 
-.minus-icon{
+.minus-icon {
     margin-right: auto;
     padding-left: 1rem;
     width: 1rem;
     height: 0.5rem;
 }
 
-.cart-container{
+.cart-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -246,11 +280,12 @@ img {
     border-radius: 1rem;
 }
 
-.cart-icon-transaction{
+.cart-icon-transaction {
     width: 1rem;
     height: 1rem;
     filter: brightness(0) invert(1) grayscale(100%);
 }
+
 /* Modal*/
 .modal-overlay {
     position: fixed;
@@ -273,11 +308,11 @@ img {
     object-fit: contain;
 }
 
-.modal-grid{
+.modal-grid {
     max-width: 25rem;
 }
 
-.modal-background{
+.modal-background {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -288,17 +323,53 @@ img {
     background-repeat: no-repeat;
 }
 
-.modal-close-button-container{
+.modal-close-button-container {
     grid-column-start: 4;
     justify-self: end;
 }
 
-.modal-close-button{
+.modal-close-button {
     filter: brightness(0) invert(1) grayscale(100%);
     width: 2rem;
     align-items: center;
 }
 
-.modal-thumbnail:hover{
-opacity: 1;
+.modal-thumbnail:hover {
+    opacity: 1;
+}
+
+.dropdown-content-mobile {
+    margin-top: 4rem;
+    left: 0;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: -webkit-fill-available;
+    display: block;
+}
+
+.shopping-cart-checkout {
+    padding: 0;
+    list-style-type: none;
+}
+.checkout-price-quantity{
+    display: flex;
+}
+
+.product-shopping-cart-info{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.1fr;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.checkout-button{
+    width: 100%;
+}
+
+.checkout-button{
+    width: 100%;
+    min-height: 2rem;
+    margin-bottom: 1rem;
 }

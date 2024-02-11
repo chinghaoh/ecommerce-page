@@ -16,6 +16,7 @@ import product4 from './images/image-product-4.jpg';
 import nextIcon from './images/icon-next.svg';
 import previousIcon from './images/icon-previous.svg';
 import menuIcon from './images/icon-menu.svg';
+import deleteIcon from './images/icon-delete.svg';
 import ProductInfoComponent from './ProductInfoComponent';
 import Thumbnail from './ThumbnailComponent';
 import ImageContainer from './ImageContainer';
@@ -30,6 +31,9 @@ function App() {
   const [currentProduct, setCurrentProduct] = useState({});
   const [productAmount, setProductAmount] = useState(1)
   const [cartItems, setCartItems] = useState([]);
+  const [cartDropdownVisible, setCartDropdownVisible] = useState(false);
+
+
 
   /*Handle mobile or desktop check */
   useEffect(() => {
@@ -139,7 +143,17 @@ function App() {
     setCartItems(newCartItems);
   };
 
-  console.log(currentProduct)
+  const deleteCartItem = (itemId, event) => {
+    event.stopPropagation(); // Prevent the event from bubbling up and triggering other elements' click events
+    const updatedCartItems = cartItems.filter(item => item.id !== itemId);
+    setCartItems(updatedCartItems);
+  };
+
+  /*Handle toggle of shoppingcart */
+  const toggleCartDropdown = (event) => {
+    event.preventDefault(); // Prevent the default action of the touch event
+    setCartDropdownVisible(!cartDropdownVisible);
+  };
 
   return (
     <html lang="en">
@@ -151,13 +165,33 @@ function App() {
         /*TODO fix header for mobile view */
         <div className='mobile-header'>
           <div className='left-side-header'>
-          <img className='mobile-menu-icon' src={menuIcon} alt='menu-icon'></img>
+            <img className='mobile-menu-icon' src={menuIcon} alt='menu-icon'></img>
             <p>Sneakers</p>
           </div>
           <div className='right-side-header'>
-            <img className='shopping-cart-icon' src={shoppingCartIcon} alt='shoppingCart'></img>
+            <img className='shopping-cart-icon' src={shoppingCartIcon} alt='shoppingCart' onTouchStart={toggleCartDropdown}
+            ></img>
             <img className='avatar-icon' src={avatarIcon} alt='Profile icon'></img>
           </div>
+          {cartDropdownVisible && (
+            <div className="dropdown-content-mobile" style={{ display: cartDropdownVisible ? 'block' : 'none' }}>
+              <h2>Cart</h2>
+              {cartItems.length ?
+                <div>
+                  <ul className='shopping-cart-checkout'>
+                    {cartItems.map(item => (
+                      <li className='product-shopping-cart-info' key={item.id}>
+                        <img className='shopping-cart-checkout-thumbnail' src={item.productThumbnails[0]} alt='product thumbnail'></img>
+                        <p>{item.name} $125.00 x {item.amount} <strong>${125 * item.amount}</strong></p>
+                        <img src={deleteIcon} alt='delete icon' onClick={(e) => deleteCartItem(item.id, e)} />
+                      </li>
+                    ))}
+                  </ul>
+                  <button className='cart-container checkout-button hover'>Checkout</button>
+                </div>
+                : <p>Your cart is empty</p>}
+            </div>
+          )}
         </div>
       ) : (<header>
         <div className='left-side-header'>
@@ -169,8 +203,31 @@ function App() {
           <p>Contact</p>
         </div>
         <div className='right-side-header'>
-          <img className='shopping-cart-icon' src={shoppingCartIcon} alt='shoppingCart'></img>
-          <img className='avatar-icon' src={avatarIcon} alt='Profile icon'></img>
+          <div className='cart-avatar-container'>
+            <div className='cart-container-header'>
+              <img className='shopping-cart-icon' src={shoppingCartIcon} alt='shoppingCart' onClick={toggleCartDropdown}></img>
+              <img className='avatar-icon' src={avatarIcon} alt='Profile icon'></img>
+            </div>
+            {cartDropdownVisible && (
+              <div className="dropdown-content">
+                <h2>Cart</h2>
+                {cartItems.length ?
+                  <div>
+                    <ul className='shopping-cart-checkout'>
+                      {cartItems.map(item => (
+                        <li className='product-shopping-cart-info' key={item.id}>
+                          <img className='shopping-cart-checkout-thumbnail' src={item.productThumbnails[0]} alt='product thumbnail'></img>
+                          <p>{item.name} $125.00 x {item.amount} <strong>${125 * item.amount}</strong></p>
+                          <img src={deleteIcon} alt='delete icon' onClick={(e) => deleteCartItem(item.id, e)} />
+                        </li>
+                      ))}
+                    </ul>
+                    <button className='cart-container checkout-button hover'>Checkout</button>
+                  </div>
+                  : <p>Your cart is empty</p>}
+              </div>
+            )}
+          </div>
         </div>
       </header>
       )}
@@ -197,7 +254,7 @@ function App() {
           productImageList={productImageList} productThumbnail={productThumbnails}
           previousIcon={previousIcon} nextIcon={nextIcon}
         ></ProductModalComponent>}
-        <div>
+        {/* <div>
           <h2>Shopping Cart</h2>
           <ul>
             {cartItems.map(item => (
@@ -208,7 +265,7 @@ function App() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </body>
     </html>
   );
